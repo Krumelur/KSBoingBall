@@ -1,0 +1,35 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Krumelur's" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="KSBoingBall/BoingController.cs">
+    <Files>
+      <File FileName="KSBoingBall/BoingScene.cs" Line="56" Column="41" />
+      <File FileName="KSBoingBall/BoingController.cs" Line="70" Column="4" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="KSBoingBall" expanded="True" selected="True">
+            <Node name="assets" expanded="True" />
+            <Node name="Resources" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="ConnectionManagerPad">
+        <State selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.KSBoingBall>
+    <MonoDevelop.MacDev.AppleDevelopmentTeam DeveloperId="KK29H78S2V" TeamId="8P293438UX" />
+  </MonoDevelop.Ide.ItemProperties.KSBoingBall>
+</Properties>
