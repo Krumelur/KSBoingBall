@@ -8,7 +8,7 @@ I wrote this little demo app for iOS 7 which covers the following topics:
  * Creating a UIViewController and adding an SKScene to it.
  * Implement interaction with the scene by standard UIControls and device shaking.
  * Demonstrate how to use the physics engine of SpriteKit to make a ball bounce realistically.
- * Show how to create SKSpriteNodes from a CGContext.
+ * Show how to use SKShapeNode
  * Show how to load an animated SKSpriteNode from individual textures.
  * Demonstrate loading and using particle systems created with Xcode's particle editor.
  * Show how to implement collision detection using the physics engine.
