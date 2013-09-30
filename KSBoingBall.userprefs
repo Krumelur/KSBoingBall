@@ -1,16 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Krumelur's" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhoneRetina4.7.0" />
   <MonoDevelop.Ide.Workbench ActiveDocument="KSBoingBall/BoingController.cs">
     <Files>
-      <File FileName="KSBoingBall/BoingScene.cs" Line="56" Column="41" />
-      <File FileName="KSBoingBall/BoingController.cs" Line="70" Column="4" />
+      <File FileName="KSBoingBall/BoingScene.cs" Line="1" Column="1" />
+      <File FileName="KSBoingBall/BoingController.cs" Line="53" Column="17" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="KSBoingBall" expanded="True" selected="True">
+          <Node name="KSBoingBall" expanded="True">
             <Node name="assets" expanded="True" />
             <Node name="Resources" expanded="True" />
+            <Node name="BoingController.cs" selected="True" />
           </Node>
         </State>
       </Pad>

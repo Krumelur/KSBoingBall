@@ -61,7 +61,7 @@ namespace KSBoingBall
 
 			// Create the background grid and add it to the center of the scene.
 			var gridNode = CreateBackgroundNode (this.Frame.Size);
-			gridNode.Position = new PointF (this.Frame.Width * .5f, this.Frame.Height * .5f); 
+			gridNode.Position = new PointF (0, 0);
 			this.AddChild (gridNode);
 
 			// Create our bouncing ball sprite.
@@ -227,61 +227,39 @@ namespace KSBoingBall
 
 		/// <summary>
 		/// Helper method that creates the grid shown in the background of the scene.
-		/// This uses a CGContext to draw the grid lines, converts it to a UIImage and then converts that to an SKSpriteNode.
 		/// </summary>
 		/// <returns>The background node.</returns>
 		/// <param name="size">Size of the scene.</param>
 		/// <param name="height">Height of the scene.</param>
-		static SKSpriteNode CreateBackgroundNode(SizeF size)
+		static SKNode CreateBackgroundNode(SizeF size)
 		{
-			UIImage gridImage = null;
-			using(var colorSpace = CGColorSpace.CreateDeviceRGB())
+			// Use a SKShapeNode. This can display any arbitrary CG content.
+			var shapeNode = new SKShapeNode ();
+			var path = new CGPath();
+			shapeNode.StrokeColor = UIColor.FromRGB (112, 80, 160);
+			float cellSize = 32f;
+
+			// Draw vertical lines.
+			float x = 0f;
+			do
 			{
-				int bitsPerComponent = 8;
-				int bytesPerPixel    = 4;
-				int bytesPerRow      = (Convert.ToInt32(size.Width) * bitsPerComponent * bytesPerPixel + 7) / 8;
-				int dataSize         = bytesPerRow * Convert.ToInt32(size.Height);
+				path.MoveToPoint (x, 0);
+				path.AddLineToPoint (x, size.Height);
+				x += cellSize;
+			} while(x < size.Width);
 
-				byte[] data = new byte[dataSize];
-				var ctx = new CGBitmapContext (data, Convert.ToInt32(size.Width), Convert.ToInt32(size.Height), bitsPerComponent, bytesPerRow, colorSpace, CGBitmapFlags.PremultipliedLast | CGBitmapFlags.ByteOrder32Big); 
+			// Draw horizontal lines.
+			float y = 0f;
+			do
+			{
+				path.MoveToPoint (0, y);
+				path.AddLineToPoint (size.Width, y);
+				y += cellSize;
+			} while(y < size.Height);
 
-				ctx.SetStrokeColor (UIColor.FromRGB(112, 80, 160).CGColor);
+			shapeNode.Path = path;
 
-				float cellSize = 32f;
-
-				// Draw vertical lines.
-				float x = 0f;
-				do
-				{
-					ctx.MoveTo (x, 0);
-					ctx.AddLineToPoint (x, size.Height);
-					x += cellSize;
-				} while(x < size.Width);
-
-				// Draw horizontal lines.
-				float y = 0f;
-				do
-				{
-					ctx.MoveTo (0, y);
-					ctx.AddLineToPoint (size.Width, y);
-					y += cellSize;
-				} while(y < size.Height);
-
-				ctx.StrokePath ();
-
-				// Create a UIImage from the context.
-				gridImage = UIImage.FromImage (ctx.ToImage ());
-			}
-
-			// Create a texture from the UIImage.
-			var gridTexture = SKTexture.FromImage (gridImage);
-			gridImage.Dispose ();
-
-			// CGContext uses a flipped coordinate system. Either fix it in CGContext, or rotate the sprite by 180 degrees.
-			var gridNode = SKSpriteNode.FromTexture(gridTexture);
-			gridNode.ZRotation = (float)Math.PI;
-
-			return gridNode;
+			return shapeNode;
 		}
 	}
 }
